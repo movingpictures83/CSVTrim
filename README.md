@@ -2,7 +2,7 @@
 # Language: R
 # Input: TXT (keyword, value pairs)
 # Output: CSV (trimmed file)
-# Tested with: PluMA 1.0, R 3.2.5
+# Tested with: PluMA 1.1, R 4.0.0
 
 PluMA plugin to take a CSV file and keep only the columns within a specific range.
 
