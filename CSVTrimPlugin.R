@@ -1,7 +1,14 @@
+dyn.load(paste("RPluMA", .Platform$dynlib.ext, sep=""))
+source("RPluMA.R")
+
 input <- function(inputfile) {
   parameters <- read.table(inputfile, as.is=T);
   rownames(parameters) <- parameters[,1]
-  my_data <<- read.csv(toString(parameters["inputfile",2]), header = T)
+  pfix = prefix()
+  if (length(pfix) != 0) {
+     prefix <- paste(pfix, "/", sep="")
+  }
+  my_data <<- read.csv(paste(pfix, toString(parameters["inputfile",2]), sep=""), header=T)
   start_column <<- as.integer(parameters["start", 2])
   if (is.na(start_column)) {
      start_column <<- 1
